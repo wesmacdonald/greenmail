@@ -22,7 +22,7 @@ ENV JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
 ENV GREENMAIL_OPTS="-Dgreenmail.setup.test.all \
     -Dgreenmail.hostname=0.0.0.0 \
     -Dgreenmail.tls.keystore.file=/home/greenmail/greenmail.p12 \
-    -Dgreenmail.tls.keystore.password=greenmail$ \
+    -Dgreenmail.tls.keystore.password=changeit \
     -Dgreenmail.auth.disabled"
 
 #######################
@@ -30,7 +30,7 @@ ENV GREENMAIL_OPTS="-Dgreenmail.setup.test.all \
 RUN groupadd -r greenmail && useradd --no-log-init -r -g greenmail greenmail
 # Note: If using Dockerfile without Maven, you must manually copy the JAR
 COPY target/greenmail-standalone.jar /home/greenmail/greenmail-standalone.jar
-COPY greenmail.p12 /home/greenmail/greenmail.p12
+COPY target/greenmail.p12 /home/greenmail/greenmail.p12
 COPY run_greenmail.sh /home/greenmail/run_greenmail.sh
 RUN chown greenmail:greenmail /home/greenmail/greenmail-standalone.jar /home/greenmail/run_greenmail.sh /home/greenmail/greenmail.p12 && \
     chmod +x /home/greenmail/run_greenmail.sh
