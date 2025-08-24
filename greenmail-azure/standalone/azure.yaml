@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: greenmail-azure
+metadata:
+    template: azd-init@1.18.0
+services:
+  api:
+    project: ./
+    host: containerapp
+    language: java
+    docker:
+      path: ./Dockerfile
+
+hooks:
+ preBuild:
+   - run: mvn clean install -DskipTests
+ postBuild:
+   - run: echo "Build completed"
+

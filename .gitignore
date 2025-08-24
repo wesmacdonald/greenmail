@@ -145,7 +145,7 @@ local.properties
 # PDT-specific
 .buildpath
 
-# sbteclipse plugin 
+# sbteclipse plugin
 .target
 
 # TeXlipse plugin
@@ -236,3 +236,6 @@ gradle-app.setting
 #Misc
 test.log
 _site
+
+# VS Code
+.vscode/
